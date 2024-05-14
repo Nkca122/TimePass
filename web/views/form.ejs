@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head.ejs') %>
+<body>
+    <% if (formType == "1") { %>
+        <% for(let i = 0; i<Num; i++) { %>
+            <form>
+                <fieldset>
+                    <legend>Q. <%= i %></legend>
+                    <input type = "radio" name = "value" id = "1">
+                    <label for = "1">1</label>
+                    <input type = "radio" name = "value" id = "2">
+                    <label for = "2">2</label>
+                    <input type = "radio" name = "value" id = "3">
+                    <label for = "3">3</label>
+                    <input type = "radio" name = "value" id = "4">
+                    <label for = "4">4</label>
+                    <input type = "radio" name = "value" id = "5">
+                    <label for = "5">5</label>
+                </fieldset>
+            </form>
+            <br>
+        <% } %>
+    <%  } else if (formType == "2") { %>
+        <% for(let i = 0; i<Num; i++) { %>
+            <form>
+                <fieldset>
+                    <legend>Q. <%= i %></legend>
+                    <input type = "radio" name = "value" id = "0">
+                    <label for = "0">0</label>
+                    <input type = "radio" name = "value" id = "1">
+                    <label for = "1">1</label>
+                </fieldset>
+            </form>
+            <br>
+        <% } %>
+    <% } %>
+
+    <input type="submit">
+</body>
+</html>
