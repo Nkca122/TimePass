@@ -41,6 +41,6 @@ app.post("/form/result", (req,res)=>{
     res.send(req.body);
     res.render("result.ejs");
     
-})
+});
 
 

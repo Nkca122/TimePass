@@ -17,6 +17,8 @@
                     <label for = "4">4</label>
                     <input type = "radio" name = "<%= i %>" id = "5" value = "5">
                     <label for = "5">5</label>
+                    <input type="checkbox" name="<%= i %>" id="reverse" value = "R">
+                    <label for="reverse">Reverse</label>
                 </fieldset>
             <br>
         <% } %>
@@ -33,6 +35,7 @@
         <% } %>
     <% } %>
     <form action="/form/result" method = "post">
+        <textarea name="sum"></textarea>
         <button>Submit</button>
     </form>
 </div>
