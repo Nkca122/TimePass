@@ -2,40 +2,41 @@
 <html lang="en">
 <%- include('includes/head.ejs') %>
 <body>
+<div class = "container">
     <% if (formType == "1") { %>
         <% for(let i = 0; i<Num; i++) { %>
-            <form>
                 <fieldset>
-                    <legend>Q. <%= i %></legend>
-                    <input type = "radio" name = "value" id = "1">
+                    <legend>Q. <%= i+1 %></legend>
+                    <input type = "radio" name = "<%= i %>" id = "1" value = "1">
                     <label for = "1">1</label>
-                    <input type = "radio" name = "value" id = "2">
+                    <input type = "radio" name = "<%= i %>" id = "2" value = "2">
                     <label for = "2">2</label>
-                    <input type = "radio" name = "value" id = "3">
+                    <input type = "radio" name = "<%= i %>" id = "3" value = "3">
                     <label for = "3">3</label>
-                    <input type = "radio" name = "value" id = "4">
+                    <input type = "radio" name = "<%= i %>" id = "4" value = "4">
                     <label for = "4">4</label>
-                    <input type = "radio" name = "value" id = "5">
+                    <input type = "radio" name = "<%= i %>" id = "5" value = "5">
                     <label for = "5">5</label>
                 </fieldset>
-            </form>
             <br>
         <% } %>
     <%  } else if (formType == "2") { %>
         <% for(let i = 0; i<Num; i++) { %>
-            <form>
                 <fieldset>
-                    <legend>Q. <%= i %></legend>
-                    <input type = "radio" name = "value" id = "0">
+                    <legend>Q. <%= i+1 %></legend>
+                    <input type = "radio" name = "<%= i %>" id = "0" value = "0">
                     <label for = "0">0</label>
-                    <input type = "radio" name = "value" id = "1">
+                    <input type = "radio" name = "<%= i %>" id = "1" value = "1">
                     <label for = "1">1</label>
                 </fieldset>
-            </form>
             <br>
         <% } %>
     <% } %>
+    <form action="/form/result" method = "post">
+        <button>Submit</button>
+    </form>
+</div>
 
-    <input type="submit">
+<script src = "js/form.js"></script>
 </body>
 </html>
