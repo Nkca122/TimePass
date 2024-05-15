@@ -16,6 +16,10 @@ function updateSum(){
     ans.textContent = `${sum}`;
 }
 
+function updateCategorySum (){
+    console.log("Sum updated");
+}
+
 
 for(let i = 0; i<num; i++){
     let radioBtns = fieldSets[i].querySelectorAll(`input[name = '${i}']`);
@@ -31,27 +35,45 @@ for(let i = 0; i<num; i++){
 
 //Adding a category
 let categoryBtn = document.querySelector(".categoryBtn");
+let categoryCheckboxes = [];
 categoryBtn.addEventListener("click", ()=>{
     let newCategory = prompt("Enter the name for the category");
     if(newCategory){
         console.log(newCategory);
         
         for(fieldSet of fieldSets){
-            let categoryCheckbox = document.createElement("input");
+        //making a checkbox
+        let categoryCheckbox = document.createElement("input");
                 categoryCheckbox.value = newCategory;
                 categoryCheckbox.name = newCategory;
                 categoryCheckbox.id = newCategory;
+                categoryCheckbox.class = "category";
                 categoryCheckbox.type = "checkbox";
             fieldSet.insertAdjacentElement("afterbegin", categoryCheckbox);
-            let categoryLabel = document.createElement("label");
+        let categoryLabel = document.createElement("label");
                 categoryLabel.for = newCategory;
                 categoryLabel.textContent = newCategory;
             fieldSet.insertAdjacentElement("afterbegin", categoryLabel);
+
+        //Adding said checkbox to a list
+        categoryCheckboxes.push(document.querySelectorAll(`#${newCategory}`));
         }
     } else {
         alert("Operation cancelled");
     }
 });
+
+
+document.addEventListener("click", ()=>{
+    for(let categoryCheckbox of categoryCheckboxes){
+        if(categoryCheckbox.checked){
+             updateCategorySum();
+        }
+     };
+})
+
+
+
 
 
 
