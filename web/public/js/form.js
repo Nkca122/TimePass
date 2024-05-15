@@ -29,3 +29,29 @@ for(let i = 0; i<num; i++){
     }
 }
 
+//Adding a category
+let categoryBtn = document.querySelector(".categoryBtn");
+categoryBtn.addEventListener("click", ()=>{
+    let newCategory = prompt("Enter the name for the category");
+    if(newCategory){
+        console.log(newCategory);
+        
+        for(fieldSet of fieldSets){
+            let categoryCheckbox = document.createElement("input");
+                categoryCheckbox.value = newCategory;
+                categoryCheckbox.name = newCategory;
+                categoryCheckbox.id = newCategory;
+                categoryCheckbox.type = "checkbox";
+            fieldSet.insertAdjacentElement("afterbegin", categoryCheckbox);
+            let categoryLabel = document.createElement("label");
+                categoryLabel.for = newCategory;
+                categoryLabel.textContent = newCategory;
+            fieldSet.insertAdjacentElement("afterbegin", categoryLabel);
+        }
+    } else {
+        alert("Operation cancelled");
+    }
+});
+
+
+
